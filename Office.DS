@@ -1,0 +1,117 @@
+DSPK V04.00 Furcadia
+**starting up**
+(0:0) When everything is starting up,
+    (5:122) treat all regions numbered 10 and higher as 'indoors', and only show furres there what's in that region.
+
+**Coming in**
+(0:9) When someone arrives in the Dream,
+    (5:15) move the triggering furre to (11,41), or to someplace nearby if it's occupied.
+
+**front Doors**
+(0:7) When someone moves into position (17,35),
+ (1:94) and timer 1 is still counting down,
+    (5:50) set countdown timer 1 to go off in 5 seconds.
+(0:7) When someone moves into position (17,35),
+    (5:50) set countdown timer 1 to go off in 5 seconds,
+    (5:63) place wall 8 at (17,35).
+(0:50) When countdown timer 1 goes off,
+    (5:63) place wall 10 at (17,35).
+
+(0:7) When someone moves into position (17,36),
+ (1:94) and timer 2 is still counting down,
+    (5:50) set countdown timer 2 to go off in 5 seconds.
+(0:7) When someone moves into position (17,36),
+    (5:50) set countdown timer 2 to go off in 5 seconds,
+    (5:63) place wall 8 at (17,36).
+(0:50) When countdown timer 1 goes off,
+    (5:63) place wall 10 at (17,36).
+
+(0:7) When someone moves into position (17,34),
+ (1:94) and timer 1 is still counting down,
+    (5:50) set countdown timer 1 to go off in 5 seconds.
+(0:7) When someone moves into position (17,34),
+    (5:50) set countdown timer 1 to go off in 5 seconds,
+    (5:63) place wall 8 at (17,35).
+(0:50) When countdown timer 1 goes off,
+    (5:63) place wall 10 at (17,35).
+
+(0:7) When someone moves into position (19,35),
+ (1:94) and timer 2 is still counting down,
+    (5:50) set countdown timer 2 to go off in 5 seconds.
+(0:7) When someone moves into position (19,35),
+    (5:50) set countdown timer 2 to go off in 5 seconds,
+    (5:63) place wall 8 at (17,36).
+(0:50) When countdown timer 2 goes off,
+    (5:63) place wall 10 at (17,36).
+
+**Door to back room**
+(0:7) When someone moves into position (25,30),
+ (1:11) and they have got shared control (or is the Dream owner),
+ (1:94) and timer 3 is still counting down,
+    (5:50) set countdown timer 3 to go off in 5 seconds.
+(0:7) When someone moves into position (25,30),
+ (1:11) and they have got shared control (or is the Dream owner),
+    (5:50) set countdown timer 3 to go off in 5 seconds,
+    (5:63) place wall 8 at (26,31).
+(0:50) When countdown timer 3 goes off,
+    (5:63) place wall 10 at (26,31).
+
+(0:7) When someone moves into position (26,31),
+ (1:11) and they have got shared control (or is the Dream owner),
+ (1:94) and timer 3 is still counting down,
+    (5:50) set countdown timer 3 to go off in 5 seconds.
+(0:7) When someone moves into position (26,31),
+ (1:11) and they have got shared control (or is the Dream owner),
+    (5:50) set countdown timer 3 to go off in 5 seconds,
+    (5:63) place wall 8 at (26,31).
+(0:50) When countdown timer 3 goes off,
+    (5:63) place wall 10 at (26,31).
+
+**Auto hello/help desk**
+(0:7) When someone moves into position (17,34),
+ (1:606) and the PhoenixSpeak info {First visit} about the triggering furre does not exist,
+    (5:201) emit message {Hello [FURRE],and welcome to the Rat Labs. An independent dream with the goal of spreading the joy of no only coding in Dragon Speak, but other languages as well. If you need anything, feel free to ask for *help from the front desk at any time.(say help with the * in front)} to any furre present.
+    (5:603) memorize that the PhoenixSpeak info {First visit} about the triggering furre will now be {False}.
+(0:7) When someone moves into position (19,35),
+ (1:606) and the PhoenixSpeak info {First visit} about the triggering furre does not exist,
+    (5:201) emit message {Hello [FURRE],and welcome to the Rat Labs. An independent dream with the goal of spreading the joy of no only coding in Dragon Speak, but other languages as well. If you need anything, feel free to ask for *help from the front desk at any time.(say help with the * in front)} to any furre present.
+    (5:603) memorize that the PhoenixSpeak info {First visit} about the triggering furre will now be {False}.
+
+(0:32) When someone says something with {*help} in it,
+ (1:8) and they can see position (21,31),
+    (5:201) emit message {Hey [FURRE], I can't help with everything but I can help with *patch,*plan, and leaving a *message. (Again, say them with the *) } to any furre present.
+
+**pyro**
+(0:17) When someone picks up item 41,
+    (5:200) emit message {You pick up the slightly glowing stone, up close it seems to be a smoldering peice of coal yet cool enough to hold in your palm. } to the triggering furre.
+(0:19) When someone uses item 41,
+ (1:81) and they are within the diamond (11,30) - (11,38),
+    (5:5) change item 79 to item 1357.
+
+(0:17) When someone picks up item 49,
+    (5:200) emit message {The glass bauble seems to be thin walled and full of somekind of thick, clear liquid } to the triggering furre.
+(0:19) When someone uses item 49,
+ (1:81) and they are within the diamond (11,30) - (11,38),
+    (5:5) change item 1357 to item 79.
+    
+**Stuff**
+(0:32) When someone says something with {*Walls} in it,
+ (1:10) and they are the Dream owner,
+    (5:50) set countdown timer 100 to go off in 10 seconds.
+    (5:123) treat all regions as 'outdoors', and show furres all regions that are visible, all the time.
+(0:50) When countdown timer 100 goes off,
+    (5:122) treat all regions numbered 10 and higher as 'indoors', and only show furres there what's in that region.
+
+**clearing PS info**
+
+(0:31) When someone says {**Kill all the PS**},
+ (1:10) and they are the Dream owner,
+    (5:633) forget all PhoenixSpeak info about this Dream.
+    (5:200) emit message {All Pheonix Speak info for this dream has been cleared.} to the triggering furre.
+
+(0:31) When someone says {**Kill the front desk npc**},
+ (1:10) and they are the Dream owner,
+    (5:632) forget the PhoenixSpeak info {First visit} about this Dream.
+    (5:200) emit message {The front desk NPC is now a new hire. } to the triggering furre.
+
+*Endtriggers* 8888 *Endtriggers*
